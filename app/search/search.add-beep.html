@@ -1,0 +1,21 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Alert you the next departures of this stop?</h3>
+</div>
+<div class="modal-body" id="modal-body">
+	<span>{{journey.info.display_informations.commercial_mode}}</span>
+	<transport-icon info="journey.info.display_informations"/>
+	direction {{journey.info.display_informations.direction}}
+	</br>
+	How many <img class="section_icon" src="images/walking.svg"> minutes before departure?
+	<div class="time-select">
+		<span class="glyphicon glyphicon-chevron-up" ng-click="walking_time = walking_time + 1"></span>
+		<div class="time-select-wrapper">
+			<select class="form-control" ng-model="walking_time" ng-options="opt for opt in msteps"></select>
+		</div>
+		<span class="glyphicon glyphicon-chevron-down" ng-click="walking_time = walking_time - 1"></span>
+	</div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="confirmAddBeep()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="dismiss()">Cancel</button>
+</div>

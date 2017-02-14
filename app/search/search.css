@@ -1,0 +1,66 @@
+.with-bg-color {
+    display: inline-block;
+    border: none;
+    border-radius: 3em;
+    text-align: center;
+    line-height: 1.2em;
+    min-width: 1em;
+    padding: 0.2em 0.3em;
+}
+
+.section_icon {
+	width: 20px;
+}
+
+.journey {
+	cursor: pointer;
+}
+
+.to {
+	color: #33b79b;
+}
+
+.search-map {
+	margin-top: 10px;
+}
+
+.heading-info {
+	overflow: hidden;
+}
+
+.search-bar .btn {
+	margin-top: 5px;
+}
+
+.header-time {
+	text-align: right;
+}
+
+.journey-options {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.tabs {
+	margin-bottom: 10px;
+}
+
+.journey-options button {
+	display: block;
+	margin-bottom: 5px;
+}
+
+.journey-info {
+	position: relative;
+}
+
+.time-select {
+	width: 100%;
+	text-align: center;
+}
+
+.time-select select {
+	display: inline-block;
+	width: 70px;
+}

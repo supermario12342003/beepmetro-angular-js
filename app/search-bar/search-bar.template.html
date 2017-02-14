@@ -1,0 +1,5 @@
+<link type="text/css" rel="stylesheet" ng-href="search-bar/search-bar.css"/>
+<div class="inner-addon right-addon">
+	<i ng-show="loading" class="glyphicon glyphicon-refresh gly-spin-1"></i>
+	<input type="text" ng-model="query" uib-typeahead="place.name for place in search($viewValue)" typeahead-loading="loading" typeahead-on-select="select($item)" typeahead-no-results="noResults" class="form-control">
+</div>

@@ -1,0 +1,12 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Add this stop to your favourites?</h3>
+</div>
+<div class="modal-body" id="modal-body">
+		<span>{{journey.info.display_informations.commercial_mode}}</span>
+		<transport-icon info="journey.info.display_informations"/>
+		direction {{journey.info.display_informations.direction}}
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="confirmAddFavourite()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="dismiss()">Cancel</button>
+</div>

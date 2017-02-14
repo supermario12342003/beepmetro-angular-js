@@ -1,0 +1,19 @@
+<uib-accordion ng-show="favourites.length" close-others="oneAtATime">
+    <div uib-accordion-group ng-click="refresh(favourite)" class="panel-default" ng-repeat="favourite in favourites">
+		<uib-accordion-heading>
+			{{favourite.first_stop.name}} 
+			<transport-icon info="favourite.display_informations"/>
+			<span>{{favourite.display_informations.commercial_mode}}</span>
+			direction {{favourite.display_informations.direction}}
+		</uib-accordion-heading>
+		<span ng-show="favourite.schedule.length == 0">
+			<i ng-show="loading" class="glyphicon glyphicon-refresh gly-spin"></i>
+		</span>
+		<span ng-repeat="time in favourite.schedule">
+		  {{time.date_time | date: "HH:mm"}}, 
+		</span>
+    </div>
+</uib-accordion>
+<div ng-hide="favourites.length">
+	No favourite yet
+</div>
