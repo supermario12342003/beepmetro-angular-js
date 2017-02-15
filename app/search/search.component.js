@@ -1,3 +1,9 @@
+/*
+* @Author: Mengwei Choong
+* @Date:   2017-02-15 16:30:09
+* @Last Modified by:   Mengwei Choong
+* @Last Modified time: 2017-02-15 16:44:39
+*/
 angular.
   module('search').
   component('search', {
@@ -11,12 +17,6 @@ angular.
       self.favourites = Favourite.getFavourites();
       self.beeps = [];
       self.searching = false;
-
-
-      if ($location.hash() == "favourite")
-      {
-        console.log("it4s favourite");
-      }
 
       self.fixJourneys = function() {
         for (var i = 0; i < self.journeys.length; i++) {

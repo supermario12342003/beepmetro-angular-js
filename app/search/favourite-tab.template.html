@@ -6,9 +6,7 @@
 			<span>{{favourite.display_informations.commercial_mode}}</span>
 			direction {{favourite.display_informations.direction}}
 		</uib-accordion-heading>
-		<span ng-show="favourite.schedule.length == 0">
-			<i ng-show="loading" class="glyphicon glyphicon-refresh gly-spin"></i>
-		</span>
+		<i ng-show="loading" class="glyphicon glyphicon-refresh gly-spin"></i>
 		<span ng-repeat="time in favourite.schedule">
 		  {{time.date_time | date: "HH:mm"}}, 
 		</span>

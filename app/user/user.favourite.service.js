@@ -1,3 +1,9 @@
+/*
+* @Author: Mengwei Choong
+* @Date:   2017-02-15 13:35:38
+* @Last Modified by:   Mengwei Choong
+* @Last Modified time: 2017-02-15 16:34:10
+*/
 (function () {
 	angular
 	.module('user')
