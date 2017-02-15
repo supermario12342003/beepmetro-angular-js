@@ -2,7 +2,7 @@
     <div uib-accordion-group ng-click="refresh(favourite)" class="panel-default" ng-repeat="favourite in favourites">
 		<uib-accordion-heading>
 			{{favourite.first_stop.name}} 
-			<transport-icon info="favourite.display_informations"/>
+			<transport-icon info="favourite.display_informations"></transport-icon>
 			<span>{{favourite.display_informations.commercial_mode}}</span>
 			direction {{favourite.display_informations.direction}}
 		</uib-accordion-heading>
@@ -14,6 +14,7 @@
 		</span>
     </div>
 </uib-accordion>
+</br>
 <div ng-hide="favourites.length">
 	No favourite yet
 </div>

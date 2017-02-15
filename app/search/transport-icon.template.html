@@ -1,3 +1,3 @@
-<span ng-show="display_informations" class="section_icon with-bg-color" ng-style="{color: 'white', 'background-color': '#' + display_informations.color}">
+<span ng-show="display_informations" class="section_icon with-bg-color" ng-style="{color: 'white', 'background-color': '#' + display_informations.color, 'min-width': 1.5 + (display_informations.code.length - 1) * 0.5 + 'em' }">
 	{{display_informations.code}}
 </span>

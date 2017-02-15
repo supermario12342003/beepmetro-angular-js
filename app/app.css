@@ -2,7 +2,7 @@
 * @Author: Mengwei Choong
 * @Date:   2017-02-12 16:42:13
 * @Last Modified by:   Mengwei Choong
-* @Last Modified time: 2017-02-13 17:10:29
+* @Last Modified time: 2017-02-15 12:01:28
 */
 
 .gly-spin {
@@ -92,4 +92,13 @@
   -ms-transform: scale(1, -1);
   -o-transform: scale(1, -1);
   transform: scale(1, -1);
+}
+
+footer {
+	text-align: center;
+}
+
+.beepmetro-logo {
+	width: 30px;
+	display: inline-block !important;
 }

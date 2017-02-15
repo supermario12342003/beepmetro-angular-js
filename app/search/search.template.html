@@ -8,15 +8,20 @@
 			</uib-tab-heading>
 			<div class="search-bar">
 				Origin:
-				<search-bar where="$ctrl.origin"></search-bar>
+				<search-bar placeholder="Gare de Lyon" where="$ctrl.origin"></search-bar>
 				Destination:
-				<search-bar where="$ctrl.destination"></search-bar>
-				<button class="btn btn-default" ng-click="$ctrl.search()">search</button>
+				<search-bar placeholder="Saint Lazare" where="$ctrl.destination"></search-bar>
+				<button class="btn btn-default" ng-click="$ctrl.search()">
+					search <i ng-show="$ctrl.searching" class="glyphicon glyphicon-refresh gly-spin"></i>
+				</button>
+				
 			</div>
 		</uib-tab>
 		<uib-tab index="1">
 			<uib-tab-heading>
-				<i class="glyphicon glyphicon-heart"></i> Favourite
+				<a ng-href="#favourite">
+					<i class="glyphicon glyphicon-heart"></i> Favourite
+				</a>
 			</uib-tab-heading>
 			<favourite-tab favourites="$ctrl.favourites"/>
 		</uib-tab>
@@ -38,45 +43,9 @@
 		</uib-tab>
 	</uib-tabset>
 </div>
-<div class="col-md-8">
-	<div class="journeys">
-		<uib-accordion ng-show="$ctrl.journeys" close-others="oneAtATime">
-		    <div uib-accordion-group class="panel-default" ng-repeat="journey in $ctrl.journeys" heading="Dynamic Body Content">
-				<uib-accordion-heading>
-					<div class="row">
-						<div class="col-xs-7 heading-info">
-							<span ng-if="section.type!='waiting'" ng-repeat="section in journey.sections.slice(0,journey.sections.length)">	
-						    	<span ng-show="section.mode=='walking' || section.transfer_type=='walking'">
-						    		<img class="section_icon" src="images/walking.svg">
-						    	</span>
-								<transport-icon info="section.display_informations"/>
-						    </span>
-						</div>
-						<div class="col-xs-5 header-time" ng-show="journey.info">
-							{{journey.info.departure_date_time | date: "HH:mm"}}
-							<transport-icon info="journey.info.display_informations"/>
-							<i class="glyphicon glyphicon-heart" ng-click="$ctrl.addFavourite(journey)"></i>
-							<i class="glyphicon glyphicon-time" ng-click="$ctrl.addBeep(journey)"></i>
-						</div>
-					</div>
-				</uib-accordion-heading>
-				<div class="journey-info">
-				    <div class="stop">
-				    	{{journey.sections[0].from.name}}
-				    </div>
-				    <span ng-if="section.type!='waiting'" ng-repeat="section in journey.sections.slice(0,journey.sections.length)">	
-				    	<span class="glyphicon glyphicon-option-vertical to"></span>
-				    	<span ng-show="section.mode=='walking' || section.transfer_type=='walking'">
-				    		<img class="section_icon" src="images/walking.svg">
-				    		Walking
-				    	</span>
-						<transport-icon info="section.display_informations"/>
-						<div class="stop">
-				    		{{section.to.name}}
-				    	</div>
-				    </span>
-				</div>
-		    </div>
-		</uib-accordion>
-	</div>
+<div class="col-md-8" ng-show="$ctrl.journeys.length == 0">
+	<ol-map></ol-map>
+</div>
+<div class="col-md-8" ng-show="$ctrl.journeys">
+	<journey journeys="$ctrl.journeys" beeps="$ctrl.beeps" favourites="$ctrl.favourites"></journey>
 </div>

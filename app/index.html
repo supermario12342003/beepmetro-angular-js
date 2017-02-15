@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="beepMetroApp">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Beepmetro</title>
@@ -17,6 +17,8 @@
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script src="app.module.js"></script>
     <script src="app.config.js"></script>
@@ -24,23 +26,33 @@
     <script src="core/navitia/navitia.module.js"></script>
     <script src="core/navitia/navitia.service.js"></script>
     <script src="core/navitia/navitia.injector.js"></script>
+    <script src="core/navbar/navbar.module.js"></script>
+    <script src="core/navbar/navbar.component.js"></script>
     <script src="openlayers/openlayers.module.js"></script>
     <script src="openlayers/openlayers.directive.js"></script>
 
-    <script src="search-bar/search-bar.module.js"></script>
-    <script src="search-bar/search-bar.directive.js"></script>
     <script src="search/search.module.js"></script>
     <script src="search/search.component.js"></script>
+    <script src="search/search-bar/search-bar.directive.js"></script>
     <script src="search/transport-icon.directive.js"></script>
     <script src="search/favourite-tab.directive.js"></script>
+    <script src="search/journey.directive.js"></script>
+
+    <script src="user/user.module.js"></script>
+    <script src="user/user.component.js"></script>
+    <script src="user/user.authentication.service.js"></script>
+    <script src="user/user.favourite.service.js"></script>
 
 
   </head>
-	<body>
-		<div class="container-fluid">
-			<div class="row">
-			  <search></search>
-			</div>
+	<body ng-app="beepMetroApp">
+	<navbar></navbar>
+	<div class="container-fluid">
+		<div ng-view class="row">
 		</div>
+	</div>
 	</body>
+	<footer>
+ 		<small>© Copyright 2017, Beepmetro by Mengwei Choong</small>
+	</footer>
 </html>

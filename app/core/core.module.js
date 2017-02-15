@@ -1,1 +1,4 @@
-angular.module('core', ['core.navitia']);
+angular.module('core', [
+	'core.navitia',
+	'core.navbar',
+]);

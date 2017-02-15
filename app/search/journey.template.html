@@ -1,0 +1,40 @@
+<div class="journeys">
+	<uib-accordion ng-show="journeys" close-others="oneAtATime">
+	    <div uib-accordion-group class="panel-default" ng-repeat="journey in journeys" heading="Dynamic Body Content">
+			<uib-accordion-heading>
+				<div class="row">
+					<div class="col-xs-7 heading-info">
+						<span ng-if="section.type!='waiting'" ng-repeat="section in journey.sections.slice(0,journey.sections.length)">	
+					    	<span ng-show="section.mode=='walking' || section.transfer_type=='walking'">
+					    		<img class="section_icon" src="images/walking.svg">
+					    	</span>
+							<transport-icon info="section.display_informations"/>
+					    </span>
+					</div>
+					<div class="col-xs-5 header-time" ng-show="journey.info">
+						{{journey.info.departure_date_time | date: "HH:mm"}}
+						<transport-icon info="journey.info.display_informations"/>
+						<i class="glyphicon glyphicon-heart" ng-click="addFavourite(journey)"></i>
+						<i class="glyphicon glyphicon-time" ng-click="addBeep(journey)"></i>
+					</div>
+				</div>
+			</uib-accordion-heading>
+			<div class="journey-info">
+			    <div class="stop">
+			    	{{journey.sections[0].from.name}}
+			    </div>
+			    <span ng-if="section.type!='waiting'" ng-repeat="section in journey.sections.slice(0,journey.sections.length)">	
+			    	<span class="glyphicon glyphicon-option-vertical to"></span>
+			    	<span ng-show="section.mode=='walking' || section.transfer_type=='walking'">
+			    		<img class="section_icon" src="images/walking.svg">
+			    		Walking
+			    	</span>
+					<transport-icon info="section.display_informations"/>
+					<div class="stop">
+			    		{{section.to.name}}
+			    	</div>
+			    </span>
+			</div>
+	    </div>
+	</uib-accordion>
+</div>

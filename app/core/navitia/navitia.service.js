@@ -1,5 +1,3 @@
-const token = "6c6d93d9-7953-4f5a-a087-2c0dc2efef3b";
-
 angular.
   module('core.navitia').
   factory('Navitia', ['$http',
@@ -34,22 +32,20 @@ angular.
 
       return {
         search: function search(query) {
-          var url = "https://api.navitia.io/v1/coverage/fr-idf/pt_objects?q=" + query;
-          return $http.get(url);
+          var url = "coverage/fr-idf/pt_objects?q=" + query;
+          return $http.get(apiHost + "/api/account/navitia?url=" + encodeURIComponent(url));
         },
 
         journeyById: function journeyById(originId, destinationId) {
-          var url = "https://api.navitia.io/v1/journeys?from="
+          var url = "journeys?from="
             + originId + "&to=" + destinationId + "&datetime=" + getDateTime();
-            console.log(url);
-          return $http.get(url);
+          return $http.get(apiHost + "/api/account/navitia?url=" + encodeURIComponent(url));
         },
 
         schedule: function (stopId) {
-          var url = "https://api.navitia.io/v1/coverage/fr-idf/stop_points/"
+          var url = "coverage/fr-idf/stop_points/"
             + stopId + "/stop_schedules?from_datetime=" + getDateTime();
-            console.log(url);
-          return $http.get(url);
+          return $http.get(apiHost + "/api/account/navitia?url=" + encodeURIComponent(url));
         },
 
         lineInfo: function lineInfo(lineId) {
